@@ -1,10 +1,10 @@
-class InvalidProductException extends Exception {
+class InvalidProductException extends Exception { // this is Invalid Exception class
     public InvalidProductException(String message) {
         super(message);
     }
 }
 
-class Product {
+class Product {  // this is product class 
     int productId;
     String productName;
     double price;
@@ -58,17 +58,17 @@ class Product {
     }
 
     public void display() {
-        System.out.println("ID: " + productId + ", Name: " + productName + ", Price: " + price + ", Quantity: " + quantity);
+        System.out.println("Product id is: " + productId + " and product name: " + productName + ", Price: " + price + ", Quantity: " + quantity);
     }
 }
 
 public class ProductManager {
     public static void main(String[] args) {
         try {
-            Product p1 = new Product(1, "Laptop", 50000 , 5);
+            Product p1 = new Product(1, "Almond",600, 5);
             p1.display();
 
-            Product p2 = new Product(2, "Mouse");
+            Product p2 = new Product(2, "Rasin");
             p2.display();
 
             p2.addProduct(2, "Mouse", 500, 10);
