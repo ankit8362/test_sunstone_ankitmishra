@@ -1,17 +1,17 @@
 class InvalidProductException extends Exception { // this is Invalid Exception class
-    public InvalidProductException(String message) {
+    public InvalidProductException(String message){
         super(message);
     }
 }
 
-class Product {  // this is product class 
+class Product{  // this is product class 
     int productId;
     String productName;
     double price;
     int quantity;
 
     public Product(int productId, String productName, double price, int quantity) throws InvalidProductException {
-        if (price < 0 || quantity < 0) {
+        if (price < 0 || quantity < 0){
             throw new InvalidProductException("Price or Quantity cannot be negative!");
         }
         this.productId = productId;
@@ -20,7 +20,7 @@ class Product {  // this is product class
         this.quantity = quantity;
     }
 
-    public Product(int productId, String productName) {
+    public Product(int productId, String productName){
         this.productId = productId;
         this.productName = productName;
         this.price = 0.0;
@@ -28,7 +28,7 @@ class Product {  // this is product class
     }
 
     public void addProduct(int productId, String productName, double price, int quantity) throws InvalidProductException {
-        if (price < 0 || quantity < 0) {
+        if (price < 0 || quantity < 0){
             throw new InvalidProductException("Price or Quantity cannot be negative!");
         }
         this.productId = productId;
@@ -39,7 +39,7 @@ class Product {  // this is product class
     }
 
     public void addProduct(String productName, double price) throws InvalidProductException {
-        if (price < 0) {
+        if (price < 0){
             throw new InvalidProductException("Price cannot be negative!");
         }
         this.productName = productName;
@@ -57,13 +57,13 @@ class Product {  // this is product class
         System.out.println("Product added: " + productName);
     }
 
-    public void display() {
+    public void display(){
         System.out.println("Product id is: " + productId + " and product name: " + productName + ", Price: " + price + ", Quantity: " + quantity);
     }
 }
 
-public class ProductManager {
-    public static void main(String[] args) {
+public class Main{
+    public static void main(String[] args){
         try {
             Product p1 = new Product(1, "Almond",600, 5);
             p1.display();
@@ -71,18 +71,18 @@ public class ProductManager {
             Product p2 = new Product(2, "Rasin");
             p2.display();
 
-            p2.addProduct(2, "Mouse", 500, 10);
+            p2.addProduct(2, "Frezze",3000, 4);
             p2.display();
 
-            Product p3 = new Product(3, "Keyboard");
-            p3.addProduct("Keyboard", 800);
+            Product p3 = new Product(3, "Table");
+            p3.addProduct("Chair", -500);
             p3.display();
 
             Product p4 = new Product(4, "Monitor");
-            p4.addProduct("Monitor", 7000, 3);
+            p4.addProduct("Mobile",15883, 2);
             p4.display();
 
-            Product p5 = new Product(5, "Phone", -10000, 2);
+            Product p5 = new Product(5, "Phone",15999, 2);
             p5.display();
 
         } catch (InvalidProductException e) {
