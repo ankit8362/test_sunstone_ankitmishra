@@ -1,0 +1,63 @@
+abstract class Flight{
+    int flightNumber;
+    String origin;
+    String destinations;
+    int baseFare;
+    abstract void calculateFare();
+    public void displaydetails(){
+        
+    }
+} 
+
+class DomesticFlight extends Flight{
+    int domesticTax;
+    DomesticFlight(int flightNumber,String origin,String destinations,int baseFare){
+        domesticTax=10;
+        this.flightNumber=flightNumber;
+        this.origin=origin;
+        this.destinations=destinations;
+        this.baseFare=baseFare;
+    }
+    void calculateFare(){
+        double totalPrice=(double)baseFare+(baseFare*10)/100;
+        System.out.println("The Total fare for Domestic flight is: "+totalPrice);
+    }
+    
+    public void displaydetails(){
+        System.out.println("Flight Number is: "+flightNumber+ " Flight is going from "+origin
+        +" to "+destinations);
+    }
+}
+
+class InternationalFlight extends Flight{
+    int internationalTax;
+    int immigrationsFee;
+    InternationalFlight(int flightNumber,String origin,String destinations,int baseFare,int immigrationsFee){
+        internationalTax=20;
+        this.flightNumber=flightNumber;
+        this.origin=origin;
+        this.destinations=destinations;
+        this.baseFare=baseFare;
+        this.immigrationsFee=immigrationsFee;
+    }
+    void calculateFare(){
+        double totalPrice=(double)baseFare+(baseFare*internationalTax)/100+ immigrationsFee;
+         System.out.println("The Total fare for International flight is: "+totalPrice);
+    }
+    
+    public void displaydetails(){
+        System.out.print("Flight Number is: "+flightNumber+ " Flight is going from "+origin
+        +" to "+destinations);
+    }
+}
+
+public class Main{   // this is main class with "Main" name
+    public static void main(String[] args){
+        DomesticFlight df=new DomesticFlight(4563,"Ahamadbad","Mumbai",5000);
+        df.calculateFare();
+        df.displaydetails();
+        InternationalFlight ifl= new InternationalFlight(630,"Banglore","London",15000,500);
+        ifl.calculateFare();
+        ifl.displaydetails();
+    }
+}
