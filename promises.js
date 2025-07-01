@@ -1,4 +1,4 @@
-// Product data
+// Question 2: Get Product Price Using a Promise
 const products = {
   'apple': 1.2,
   'banana': 0.5,
